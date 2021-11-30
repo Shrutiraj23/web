@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function validateForm(){
+            if(document.getElementById('first_Name').value==""){
+                alert("Please enter first name");
+                return false;
+            }
+            var text= /^[a-zA-Z]+$/;
+            if(!(document.getElementById('first_Name').value.match(text))){
+                alert("Please enter only text in first name");
+                return false;
+            }
+            
+            if(document.getElementById('Address').value==""){
+                alert("Please enter the address");
+                return false;
+            }
+            var num=/^[0-9]+$/;
+            if(document.getElementById('Zip_code').value==''){
+                alert("Please enter zip Code");
+                return false;
+            }
+            if(!document.getElementById('Zip_code').value.match(num)){
+                alert("Please enter only numbers in zip code");
+                return false;
+            }
+            if(document.getElementById('state').value==''){
+                alert("Please select any state");
+                return false;
+            }
+            if(document.getElementById('Username').value==''){
+                alert("Please enter any username ");
+                return false;
+            }
+            if(document.getElementById('Username').value.length>8 ||document.getElementById('Username').value.length<6 ){
+                alert("Please enter username (6-8)char only");
+                return false;
+            }
+            if(document.getElementById("email").value==''){
+                alert("Please enter email")
+                return false;
+            }
+            var validRegex = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
+            if(!document.getElementById("email").value.match(validRegex)){
+                alert("Please insert valid email");
+                return false;
+            }
+            alert("All valid value entered");
+        }
+    </script>
+    <style>
+        .content-block{
+            background-color: #48c0c0ce;
+            border-top-color: aqua;
+            border-top-width:20rem ;
+        }
+        .content{
+            margin-right: 50%;
+            flex-direction: column;
+            display: flex;
+        }
+        .upper{
+            background-color: rgba(0, 0, 0, 0.356);
+            height:2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class='content-block'> 
+        <div class="upper"> </div>
+        <form class='content' onsubmit="return validateForm()" >
+        <label for="first_Name">First Name:<input type="text" id="first_Name"></label>
+        <label for="Adrress">Address:<input type="text" id="Address"></label>
+        <label for="Zip Code">Zip Code:<input type="text" id="Zip_code"></label>
+        <label for="state" >State:<select id="state">
+            <option value=''></option>
+            <option value="UP">UP</option>
+            <option value="BIHAR">BIHAR</option>
+            <option value="JHARKHAND">JHARKHAND</option>
+        </select></label>
+        <label for="Username">Username(6-8 charachters):<input type="text" id="Username" max="8" min="6"></label>
+        <label for="email">Email: <input type="text" id="email" size="30" ></label>
+        <button style="height: 2rem; width:8rem;">Check Form</button>
+        </form>
+    </div>
+    
+    
+</body>
+</html>
